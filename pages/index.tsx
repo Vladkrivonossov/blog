@@ -1,4 +1,5 @@
 import { Posts } from "../components/Posts/Posts";
+import { createClient } from "next-sanity";
 import { IArticle } from "../types/Article";
 import { NextPage } from "next";
 
@@ -10,18 +11,19 @@ const Home: NextPage<Props> = ({ articles }) => {
   return <Posts articles={articles} />;
 };
 
+const client = createClient({
+  projectId: 'l31sme3u',
+  dataset: 'production',
+  apiVersion: '2021-10-21',
+  useCdn: false
+})
+
 export async function getStaticProps() {
+  const articles = await client.fetch(`*[_type == "article"]`)
+
   return {
     props: {
-      articles: [
-        { slug: "page-1", title: "title-1", text: "text-1" },
-        { slug: "page-2", title: "title-2", text: "text-2" },
-        { slug: "page-3", title: "title-3", text: "text-3" },
-        { slug: "page-4", title: "title-4", text: "text-4" },
-        { slug: "page-5", title: "title-5", text: "text-5" },
-        { slug: "page-6", title: "title-6", text: "text-6" },
-        { slug: "page-7", title: "title-7", text: "text-7" },
-      ],
+      articles
     },
   };
 }

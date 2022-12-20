@@ -24,6 +24,9 @@ export async function getStaticPaths() {
   return {
     paths: [
       "/page-1",
+      "/slug1",
+      "/slug2",
+      "/slug3",
       "/page-2",
       "/page-3",
       "/page-4",
