@@ -1,10 +1,10 @@
 import { Posts } from "../components/Posts/Posts";
 import { createClient } from "next-sanity";
-import { IArticle } from "../types/Article";
 import { NextPage } from "next";
+import {IArticleAPI} from "../types/ArticleAPI";
 
 interface Props {
-  articles: IArticle[];
+  articles: IArticleAPI[];
 }
 
 const Home: NextPage<Props> = ({ articles }) => {
@@ -12,7 +12,7 @@ const Home: NextPage<Props> = ({ articles }) => {
 };
 
 const client = createClient({
-  projectId: 'l31sme3u',
+  projectId: process.env.PROJECT_ID,
   dataset: 'production',
   apiVersion: '2021-10-21',
   useCdn: false
@@ -20,6 +20,8 @@ const client = createClient({
 
 export async function getStaticProps() {
   const articles = await client.fetch(`*[_type == "article"]`)
+
+  console.log(articles)
 
   return {
     props: {

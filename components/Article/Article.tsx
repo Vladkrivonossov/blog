@@ -2,22 +2,23 @@ import React, { FC } from "react";
 import articleClasses from "./article.module.css";
 import classNames from "classnames";
 import themeClasses from "../../styles/theme.module.css";
-import ReactMarkdown from "react-markdown";
+import {PortableText} from "@portabletext/react";
+import {PortableTextBlock} from "@portabletext/types";
 import Link from "next/link";
 
 interface Props {
   title: string;
-  text: string;
+  content: PortableTextBlock[];
 }
 
-export const Article: FC<Props> = ({ title, text }) => {
+export const Article: FC<Props> = ({ title, content }) => {
   return (
     <>
       <article className={articleClasses.article}>
         <h1 className={classNames(themeClasses.h1, articleClasses.h1)}>
           {title}
         </h1>
-        <ReactMarkdown>{text}</ReactMarkdown>
+        <PortableText value={content} />
       </article>
       <Link href="/">
         <button
