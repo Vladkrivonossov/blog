@@ -5,9 +5,10 @@
 :root {
     --color-text: #161618;
     --color-bg: #FCFDFF;
-    --color-primary: #0185FF;
+    --color-primary: #5A3D8F;
     --color-white: #fff;
-    --color-header-border: #161618;
+    --color-title-border: #161618;
+    --header-links-color: #8B9292;
 
     --font-primary: 'Raleway', sans-serif;
     --font-text: 'Merriweather', sans-serif;
@@ -18,7 +19,8 @@
     :root {
         --color-text: #FCFDFF;
         --color-bg: #161618;
-        --color-header-border: #8B9292;
+        --color-title-border: #8B9292;
+        --header-links-color: var(--color-white);
     }
 }
 

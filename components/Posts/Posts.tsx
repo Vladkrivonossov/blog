@@ -6,6 +6,8 @@ import plural from "plural-ru";
 import { ArticlePreview } from "../ArticlePreview/ArticlePreview";
 import {IArticleAPI} from "../../types/ArticleAPI";
 import {beautifyDate} from "../../utils";
+import sloth from '../../images/sleepy-sloth.png'
+import Image from "next/image";
 
 interface Props {
   articles: IArticleAPI[];
@@ -14,7 +16,7 @@ interface Props {
 export const Posts: FC<Props> = ({ articles }) => {
   return (
     <>
-      <header className={postsClasses.header}>
+      <div className={postsClasses.title}>
         <h1 className={classNames(themeClasses.h1, postsClasses.h1)}>
           {articles.length > 0
             ? `${plural(
@@ -22,11 +24,11 @@ export const Posts: FC<Props> = ({ articles }) => {
                 "%d пост",
                 "%d поста",
                 "%d постов"
-              )} у чмони`
-            : "У чмони нет постов"}
+              )}`
+            : "Пока-что постов нету"}
         </h1>
-      </header>
-      {Boolean(articles.length) && (
+      </div>
+      {Boolean(articles.length) ? (
         <div className={postsClasses.list}>
           {articles.map((article) => {
             return (
@@ -39,7 +41,12 @@ export const Posts: FC<Props> = ({ articles }) => {
             );
           })}
         </div>
+      ) : (
+        <div className={postsClasses.img}>
+          <Image src={sloth} alt="sleepy-sloth" />
+        </div>
       )}
     </>
   );
 };
+
