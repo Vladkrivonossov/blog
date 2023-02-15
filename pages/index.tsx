@@ -1,8 +1,14 @@
-import React from 'react'
-import Links from "../components/Links/Links";
+import { motion } from 'framer-motion'
+import { ProfileInfo } from '../components/ProfileInfo/ProfileInfo'
+import { Skils } from '../components/Skils/Skils'
 
 const Home = () => {
-  return <Links />
+	return (
+		<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.5 }}>
+			<ProfileInfo />
+			<Skils />
+		</motion.div>
+	)
 }
 
 export default Home

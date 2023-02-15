@@ -3,32 +3,37 @@
 @import-normalize;
 
 :root {
-    --color-text: #161618;
-    --color-bg: #FCFDFF;
-    --color-primary: #5A3D8F;
-    --color-white: #fff;
-    --color-title-border: #161618;
-    --header-links-color: #8B9292;
+	--color-black: #071013;
+	--color-text: var(--color-black);
+	--color-bg: #fcfdff;
+	--color-accent: #6874e8;
+	--color-primary: #69d1c5;
+	--color-white: #fff;
+	--color-title-border: #161618;
+	--header-links-color: var(--color-black);
 
-    --font-primary: 'Raleway', sans-serif;
-    --font-text: 'Merriweather', sans-serif;
+	--font-primary: 'Raleway', sans-serif;
+	--font-text: 'Merriweather', sans-serif;
 }
 
-
 @media (prefers-color-scheme: dark) {
-    :root {
-        --color-text: #FCFDFF;
-        --color-bg: #161618;
-        --color-title-border: #8B9292;
-        --header-links-color: var(--color-white);
-    }
+	:root {
+		--color-text: #fcfdff;
+		--color-bg: var(--color-black);
+		--color-title-border: #8b9292;
+		--header-links-color: var(--color-white);
+	}
+}
+
+::selection {
+	color: var(--color-primary);
 }
 
 body {
-    margin: 0;
-    font-family: var(--font-text);
-    font-size: 14px;
-    line-height: 22px;
-    color: var(--color-text);
-    background-color: var(--color-bg);
+	margin: 0;
+	font-family: var(--font-text);
+	font-size: 14px;
+	line-height: 22px;
+	color: var(--color-text);
+	background-color: var(--color-bg);
 }

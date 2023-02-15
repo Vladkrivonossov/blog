@@ -1,17 +1,15 @@
 .container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 10px;
 }
-
 
 .link {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    color: var(--color-primary);
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	color: var(--color-accent);
 }
-
